@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>User List</h1>
+
+
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of users" (click)="selectUser(user)">
+      {{ user.firstName }} {{ user.lastName }}
+    </li>
+  </ul>
+
+  <app-user-add (addUser)="addUser($event)"></app-user-add>
+
+  <div class="card mt-3" *ngIf="selectedUser">
+    <div class="card-body">
+      <h2 class="card-title">User Details</h2>
+      <p><strong>First Name:</strong> {{ selectedUser.firstName }}</p>
+      <p><strong>Last Name:</strong> {{ selectedUser.lastName }}</p>
+      <p><strong>Age:</strong> {{ selectedUser.age }}</p>
+      <p><strong>Position:</strong> {{ selectedUser.position }}</p>
+
+      <button class="btn btn-danger" (click)="deleteUser(selectedUser)">Delete</button>
+    </div>
+  </div>
+
+  <app-user-edit
+    *ngIf="selectedUser"
+    [user]="selectedUser"
+    (save)="saveUser($event)"
+  ></app-user-edit>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Add User</h2>
+  <form (ngSubmit)="saveUser()" class="mb-3">
+    <div class="mb-3">
+      <label class="form-label">First Name:</label>
+      <input [(ngModel)]="newUser.firstName" name="firstName" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Last Name:</label>
+      <input [(ngModel)]="newUser.lastName" name="lastName" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Age:</label>
+      <input [(ngModel)]="newUser.age" name="age" type="number" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Position:</label>
+      <input [(ngModel)]="newUser.position" name="position" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
